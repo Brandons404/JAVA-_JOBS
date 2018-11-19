@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+
 /**
  * Created by LaunchCode
  */
@@ -39,7 +40,7 @@ public class TechJobs {
 
                 if (columnChoice.equals("all")) {
                     printJobs(JobData.findAll());
-                } else {
+                } else { //one of the other options eg. location / name/ job title
 
                     ArrayList<String> results = JobData.findAll(columnChoice);
 
@@ -111,6 +112,14 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+        for (HashMap<String, String> job : someJobs) {
+            System.out.println("\n********");
+            for (String key : job.keySet()) {
+                System.out.println(key + ": " + job.get(key)); //kEYSET HAS A LOWERCASE K!!!!!!!!
+            }
+            System.out.println("********");
+            //put stuff here
+        }
+        // System.out.println(someJobs);
     }
 }
