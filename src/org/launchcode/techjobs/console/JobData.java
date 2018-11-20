@@ -129,13 +129,15 @@ public class JobData {
         loadData();
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+        String value = val.toLowerCase();
 
         for (HashMap<String, String> job : allJobs) {
 
             for (String key : job.keySet()) {
-                if (job.get(key).toLowerCase().contains(val.toLowerCase())) {
+                if (job.get(key).toLowerCase().contains(value)) {
 
                     jobs.add(job);
+                    break;
 
                 }
 
