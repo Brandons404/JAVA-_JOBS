@@ -123,7 +123,7 @@ public class JobData {
             e.printStackTrace();
         }
     }
-    public static ArrayList<HashMap<String, String>> findByValue(String col, String val) {
+    public static ArrayList<HashMap<String, String>> findByValue(String val) {
 
         // load data, if not already loaded
         loadData();
@@ -132,18 +132,15 @@ public class JobData {
 
         for (HashMap<String, String> job : allJobs) {
 
-            String aColumn = job.get(col);
-            String loweraColumn = aColumn.toLowerCase();
-            String lowercaseval = val.toLowerCase();
-            Boolean bool = loweraColumn.contains(lowercaseval);
+            for (String key : job.keySet()) {
+                if (job.get(key).toLowerCase().contains(val.toLowerCase())) {
 
-            if (bool) {
-                jobs.add(job);
+                    jobs.add(job);
+
+                }
+
             }
 
-            //if (aColumn.contains(val)) {
-                //jobs.add(job);
-            //}
         }
 
         return jobs;
